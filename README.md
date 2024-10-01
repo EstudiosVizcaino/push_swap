@@ -1,0 +1,1 @@
+push_swap is an algorithmic project from the 42 school curriculum. The goal is to sort a stack of integers using a limited set of operations (push, swap, and rotate) while minimizing the number of moves. This project helps in understanding sorting algorithms and optimizing them for efficienc
