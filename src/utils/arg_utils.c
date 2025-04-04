@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/03/27 15:30:37 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/04 12:02:47 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ int	*sanitize_args(int argc, char **nbs)
 		++i;
 		++j;
 	}
-		printf("PINGA + %i\n", temp[1]);
-			
+	j = 1;			
 	while (temp[j])
 	{
 		printf("-> '%i'\n", temp[j]);

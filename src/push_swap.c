@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/03/27 15:29:48 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/04 11:58:23 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int	main(int argc, char **argv)
 {
-	int	i = 0;
+	int	i = 1;
 	int	j = 0;
 	int	*nbs;
 
