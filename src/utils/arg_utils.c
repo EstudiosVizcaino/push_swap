@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/08 05:03:30 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/08 18:48:53 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,14 @@ int	only_numbers(char **nbs)
 		j = 0;
 		while (nbs[i][j])
 		{
-			if ((nbs[i][j] != 43 && nbs[i][j] != 45) && (nbs[i][j] < 48
-			|| nbs[i][j] > 57))
+			if ((nbs[i][j] != 43 && nbs[i][j] != 45) && !(ft_isdigit(nbs[i][j])))
 				return (print_error(), 0);
 			if ((nbs[i][j] == 43 && nbs[i][j + 1] == 43) ||
 			(nbs[i][j] == 45 && nbs[i][j + 1] == 45))
 				return (print_error(), 0);
 			++j;
+			if ((nbs[i][j] == 45 || nbs[i][j] == 43) && !(ft_isdigit(nbs[i][j])))
+				return (print_error(), 0);
 		}
 		++i;
 	}
