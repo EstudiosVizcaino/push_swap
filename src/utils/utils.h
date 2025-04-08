@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:05:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/03/27 15:18:25 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/08 03:19:16 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define UTILS_H
 # include "../push_swap.h"
 
-int	*sanitize_args(int argc, char **nbs);
+int		*sanitize_args(int argc, char **nbs);
+void	print_error(void);
 
 #endif
