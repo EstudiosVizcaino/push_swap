@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/08 18:48:53 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/08 20:06:30 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,14 @@ int	*sanitize_args(int argc, char **argv)
 	j = 0;
 	if (!(only_numbers(argv)))
 		return (0);
-	temp = ft_calloc(argc, sizeof(int));
+	temp = ft_calloc((argc + 1), sizeof(int));
 	if (!temp)
 		return (NULL);
 	while (argv[i])
 	{
 		temp[j++] = ft_atoi(argv[i++]);
 	}
-	if (has_repeated_numbers(argc - 1, temp))
+	if (has_repeated_numbers(argc, temp))
 		return (0);
 	return (temp);
 }
