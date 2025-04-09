@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/08 20:09:17 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:35:53 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ int	main(int argc, char **argv)
 	j = 0;
 	if (argc < 2)
 		return (-1);
-	if (argc == 2)
+	//Prueba Split
+
+	//printf("ft_split: %s", );
+
+	
+	if (argc == 2 && (ft_isdigit(ft_atoi(argv[1])) && argv[2] != NULL))
 	{
 		printf("PINGUITA\n");
 		nbs = sanitize_args(ft_strlen2(argv), ft_split(argv[0], ' '));
