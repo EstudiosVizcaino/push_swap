@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 23:43:05 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/08 19:48:28 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/09 20:58:32 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,16 @@ int	ft_strlen2(char **str)
 	while (str[count])
 		++count;
 	return (count);
+}
+
+void	ft_free_array(char **str)
+{
+	int	i;
+
+	i = 0;
+	if (str == NULL || *str == NULL)
+		return ;
+	while (str[i])
+		free(str[i++]);
+	free (str);
 }
