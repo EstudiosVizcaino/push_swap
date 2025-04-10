@@ -20,14 +20,16 @@ int	check_count(int argc, char **argv)
 	i = 0;
 	while (argv[i])
 	{
+
 		if (ft_strchr(argv[i], ' '))
 		{
 			aux = ft_split(argv[i], ' ');
 			argc += (ft_strlen2(aux) - 1);
+			ft_free_array(aux);
 		}
 		++i;
 	}
-	return (ft_free_array(aux), argc);
+	return (argc);
 }
 
 /// @brief Checks if the two-dimensional array contains only numbers and no
@@ -138,12 +140,8 @@ int	*extract_nbs(int *temp, char **argv)
 /// int array cointaining all the numbers in the order provided by the user
 int	*sanitize_args(int argc, char **argv)
 {
-	int		i;
-	int		j;
 	int		*nbs;
 
-	i = 0;
-	j = 0;
 	argc = check_count(argc, argv);
 	if (!(only_numbers(argv)))
 		return (0);
