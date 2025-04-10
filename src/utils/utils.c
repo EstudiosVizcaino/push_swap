@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 23:43:05 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/09 20:58:32 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:55:36 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	ft_strlen2(char **str)
 {
 	int	count;
-	int	j;
 
 	count = 0;
 	while (str[count])

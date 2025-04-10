@@ -6,11 +6,29 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/09 21:22:51 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/10 14:55:54 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+
+int	check_count(int argc, char **argv)
+{
+	int		i;
+	char	**aux;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (ft_strchr(argv[i], ' '))
+		{
+			aux = ft_split(argv[i], ' ');
+			argc += (ft_strlen2(aux) - 1);
+		}
+		++i;
+	}
+	return (ft_free_array(aux), argc);
+}
 
 /// @brief Checks if the two-dimensional array contains only numbers and no
 /// consecutive '-' or '+' signs.
@@ -28,7 +46,7 @@ int	only_numbers(char **nbs)
 		while (nbs[i][j])
 		{
 			if ((nbs[i][j] != 43 && nbs[i][j] != 45) &&
-			!(ft_isdigit(nbs[i][j])))
+			nbs[i][j] != 32 && !(ft_isdigit(nbs[i][j])))
 				return (print_error(), 0);
 			if ((nbs[i][j] == 43 && nbs[i][j + 1] == 43) ||
 			(nbs[i][j] == 45 && nbs[i][j + 1] == 45))
@@ -77,6 +95,31 @@ int	has_repeated_numbers(int length, int *nbs)
 	return (0);
 }
 
+int	*extract_nbs(int *temp, char **argv)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	**aux;
+
+	i = 0;
+	j = 0;
+	while (argv[i])
+	{
+		if (ft_strchr(argv[i], 32))
+		{
+			aux = ft_split(argv[i], 32);
+			k = 0;
+			while (aux[k])
+				temp[j++] = ft_atoi(aux[k++]);
+			++i;
+			ft_free_array(aux);
+		}
+		temp[j++] = ft_atoi(argv[i++]);
+	}
+	return (temp);
+}
+
 /// @brief Receives a two-dimensional char array and after performing several
 /// checks, returns it as a normal int array if the format is correct.
 /// 
@@ -95,24 +138,23 @@ int	has_repeated_numbers(int length, int *nbs)
 /// int array cointaining all the numbers in the order provided by the user
 int	*sanitize_args(int argc, char **argv)
 {
-	int	i;
-	int	j;
-	int	*temp;
+	int		i;
+	int		j;
+	int		*nbs;
 
 	i = 0;
 	j = 0;
+	argc = check_count(argc, argv);
 	if (!(only_numbers(argv)))
 		return (0);
-	temp = ft_calloc((argc + 1), sizeof(int));
-	if (!temp)
+	nbs = ft_calloc((argc + 1), sizeof(int));
+	if (!nbs)
 		return (NULL);
-	while (argv[i])
-	{
-		temp[j++] = ft_atoi(argv[i++]);
-	}
-	if (has_repeated_numbers(argc, temp))
+	nbs = extract_nbs(nbs, argv);
+					printf("ARGC: %i\n", argc);
+	if (has_repeated_numbers(argc, nbs))
 		return (0);
-	return (temp);
+	return (nbs);
 }
 
 // int	is_within_limits(int size, int *nbs)
