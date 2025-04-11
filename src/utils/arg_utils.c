@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/10 14:55:54 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/11 11:28:38 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	check_count(int argc, char **argv)
 	i = 0;
 	while (argv[i])
 	{
-
 		if (ft_strchr(argv[i], ' '))
 		{
 			aux = ft_split(argv[i], ' ');
@@ -117,7 +116,8 @@ int	*extract_nbs(int *temp, char **argv)
 			++i;
 			ft_free_array(aux);
 		}
-		temp[j++] = ft_atoi(argv[i++]);
+		else
+			temp[j++] = ft_atoi(argv[i++]);
 	}
 	return (temp);
 }
@@ -149,7 +149,6 @@ int	*sanitize_args(int argc, char **argv)
 	if (!nbs)
 		return (NULL);
 	nbs = extract_nbs(nbs, argv);
-					printf("ARGC: %i\n", argc);
 	if (has_repeated_numbers(argc, nbs))
 		return (0);
 	return (nbs);
