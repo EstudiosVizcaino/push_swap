@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/12 20:27:28 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/12 21:03:46 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,9 @@ int	*extract_nbs(int *temp, char **argv)
 int	*sanitize_args(int argc, char **argv)
 {
 	int		*nbs;
+	int		i;
 
+	i = 0;
 	argc = check_count(argc, argv);
 	if (argc == -1 || !(only_numbers(argv)))
 		return (0);
@@ -157,6 +159,9 @@ int	*sanitize_args(int argc, char **argv)
 	nbs = extract_nbs(nbs, argv);
 	if (has_repeated_numbers(argc, nbs))
 		return (0);
+	nbs = brutal_sort(nbs, argc);
+	while (i < argc)
+		printf("%i, ", nbs[i++]);
 	return (nbs);
 }
 
