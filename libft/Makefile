@@ -35,6 +35,7 @@ MY_SOURCES = ft_isalnum.c\
 		ft_putendl_fd.c\
 		ft_putnbr_fd.c\
 		ft_split.c\
+		ft_str_is_only_space.c\
 		ft_isprint.c
 	
 MY_OBJECTS = $(MY_SOURCES:.c=.o)

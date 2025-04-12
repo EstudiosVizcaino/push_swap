@@ -6,12 +6,16 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/11 11:28:38 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/12 20:27:28 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-
+/// @brief Checks the total ammount of numbers given. If while iterating the
+/// arrays finds one that is full of ceros, it will return (0) and print error
+/// @param argc Number if arguments received by the program
+/// @param argv Array of strings received by the program
+/// @return Returns the total amount of numbers given by the user
 int	check_count(int argc, char **argv)
 {
 	int		i;
@@ -20,6 +24,8 @@ int	check_count(int argc, char **argv)
 	i = 0;
 	while (argv[i])
 	{
+		if (ft_str_is_only_space(argv[i]))
+			return (print_error(), -1);
 		if (ft_strchr(argv[i], ' '))
 		{
 			aux = ft_split(argv[i], ' ');
@@ -40,7 +46,7 @@ int	only_numbers(char **nbs)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	while (nbs[i])
 	{
 		j = 0;
@@ -143,7 +149,7 @@ int	*sanitize_args(int argc, char **argv)
 	int		*nbs;
 
 	argc = check_count(argc, argv);
-	if (!(only_numbers(argv)))
+	if (argc == -1 || !(only_numbers(argv)))
 		return (0);
 	nbs = ft_calloc((argc + 1), sizeof(int));
 	if (!nbs)
