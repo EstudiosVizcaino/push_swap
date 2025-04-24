@@ -6,12 +6,12 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/12 21:03:46 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/24 13:59:49 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-/// @brief Checks the total ammount of numbers given. If while iterating the
+/// @brief Checks the total ammount of numbers given. While iterating if the
 /// arrays finds one that is full of ceros, it will return (0) and print error
 /// @param argc Number if arguments received by the program
 /// @param argv Array of strings received by the program

@@ -1,33 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   operations.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 12:22:16 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/24 13:56:12 by cvizcain         ###   ########.fr       */
+/*   Created: 2025/04/24 13:55:04 by cvizcain          #+#    #+#             */
+/*   Updated: 2025/04/24 13:55:47 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdbool.h>
-# include <limits.h>
-# include "utils/utils.h"
-# include "ops/operations.h"
-# include "../libft/libft.h"
-
-typedef struct s_stack_node
-{
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;	
-}	t_stack_node;
+#ifndef OPERATIONS_H
+# define OPERATIONS_H
+# include "../push_swap.h"
 
 #endif

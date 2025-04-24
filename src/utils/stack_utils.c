@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/01 12:22:16 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/24 13:56:12 by cvizcain         ###   ########.fr       */
+/*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
+/*   Updated: 2025/04/24 14:19:21 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include <stdbool.h>
-# include <limits.h>
-# include "utils/utils.h"
-# include "ops/operations.h"
-# include "../libft/libft.h"
+#include "utils.h"
 
-typedef struct s_stack_node
+void	stack_init(t_stack_node **stack, int *nbs)
 {
-	int					nbr;
-	int					index;
-	int					push_cost;
-	bool				above_median;
-	bool				cheapest;
-	struct s_stack_node	*target_node;
-	struct s_stack_node	*next;
-	struct s_stack_node	*prev;	
-}	t_stack_node;
+	t_stack_node	*node;
+	t_stack_node	*last_node;
 
-#endif
+	if (!nbs || !stack)
+		return (free (nbs));
+	node = ft_calloc(1, sizeof(t_stack_node));
+	if (!node)
+		return (free (nbs));
+	return (free(nbs));
+}

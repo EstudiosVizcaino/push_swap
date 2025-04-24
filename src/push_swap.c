@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/12 21:02:13 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/24 13:51:48 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,18 @@ int	*manage_input(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	int		*nbs;
+	int				*nbs;
+	t_stack_node	*a;
+	t_stack_node	*b;
 
+	a = NULL;
+	b = NULL;
 	if (argc < 2)
 		return (-1);
+//Implement error checking and frees into stack_init
+	stack_init(&a, manage_input(argc, argv));
 	nbs = manage_input(argc, argv);
-	if (!nbs)
+	if (!nbs || b)
 		return (-1);
 	return (free (nbs), 0);
 }
