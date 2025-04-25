@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/25 17:35:31 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/26 00:41:24 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	stack_init(t_stack_node **stack, int *nbs)
 {
+	int				i;
 	t_stack_node	*node;
 	//t_stack_node	*last_node;
-	int				i;
-
 	i = 0;
 	if (!nbs || !stack)
 		return (free (nbs));

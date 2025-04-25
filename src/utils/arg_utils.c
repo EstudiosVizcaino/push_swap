@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/25 17:40:03 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/26 00:38:02 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check_count(int argc, char **argv)
 	while (argv[i])
 	{
 		if (ft_str_is_only_space(argv[i]))
-			return (print_error(), -1);
+			return (-1);
 		if (ft_strchr(argv[i], ' '))
 		{
 			aux = ft_split(argv[i], ' ');
@@ -54,14 +54,14 @@ int	only_numbers(char **nbs)
 		{
 			if ((nbs[i][j] != 43 && nbs[i][j] != 45) &&
 			nbs[i][j] != 32 && !(ft_isdigit(nbs[i][j])))
-				return (print_error(), 0);
+				return (0);
 			if ((nbs[i][j] == 43 && nbs[i][j + 1] == 43) ||
 			(nbs[i][j] == 45 && nbs[i][j + 1] == 45))
-				return (print_error(), 0);
+				return (0);
 			++j;
 			if ((nbs[i][j] == 45 || nbs[i][j] == 43) &&
 			!(ft_isdigit(nbs[i][j])))
-				return (print_error(), 0);
+				return (0);
 		}
 		++i;
 	}
@@ -94,7 +94,7 @@ int	has_repeated_numbers(int length, int *nbs)
 			if (nbs[j] == nbs[i])
 				count++;
 			if (count == 1)
-				return (free (nbs), print_error(), 1);
+				return (free (nbs), 1);
 			++j;
 		}
 		++i;
@@ -144,26 +144,28 @@ int	*extract_nbs(int *temp, char **argv)
 /// the user
 /// @return If the array passes all the parsing tests, it will return a single
 /// int array cointaining all the numbers in the order provided by the user
-int	*sanitize_args(int argc, char **argv)
+t_processed_input	sanitize_args(int argc, char **argv)
 {
-	int		*nbs;
-	int		i;
+	int					i;
+	t_processed_input	input;
 
 	i = 0;
 	argc = check_count(argc, argv);
 	if (argc == -1 || !(only_numbers(argv)))
-		return (0);
-	nbs = ft_calloc((argc + 1), sizeof(int));
-	if (!nbs)
-		return (NULL);
-	nbs = extract_nbs(nbs, argv);
-	if (has_repeated_numbers(argc, nbs))
-		return (0);
-	nbs = brutal_sort(nbs, argc);
+		input.length = -1;
+	else
+		input.length = argc;
+	input.nbs = ft_calloc((argc + 1), sizeof(int));
+	if (!input.nbs)
+		input.length = -1;
+	input.nbs = extract_nbs(input.nbs, argv);
+	if (has_repeated_numbers(argc, input.nbs))
+		input.length = -1;
+	input.nbs = brutal_sort(input.nbs, argc);
 	while (i < argc)
-		printf("%i, ", nbs[i++]);
+		printf("%i, ", input.nbs[i++]);
 	printf("\n");
-	return (nbs);
+	return (input);
 }
 
 // int	is_within_limits(int size, int *nbs)
