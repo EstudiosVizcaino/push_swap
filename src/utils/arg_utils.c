@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/24 13:59:49 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/04/25 17:40:03 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ int	*sanitize_args(int argc, char **argv)
 	nbs = brutal_sort(nbs, argc);
 	while (i < argc)
 		printf("%i, ", nbs[i++]);
+	printf("\n");
 	return (nbs);
 }
 
