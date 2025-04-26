@@ -14,12 +14,12 @@
 # define UTILS_H
 # include "../push_swap.h"
 
-t_processed_input		sanitize_args(int argc, char **argv);
-void					print_error(void);
-int						ft_strlen2(char **str);
-void					ft_free_array(char **str);
-int						*brutal_sort(int *tab, int len);
-void					stack_init(t_stack_node **stack, int *nbs);
-int						ft_getargc(int arc, char **argv);
+t_processed_input	sanitize_args(int argc, char **argv);
+void				print_error(void);
+int					ft_strlen2(char **str);
+void				ft_free_array(char **str);
+int					*brutal_sort(int *tab, int len);
+void				stack_init(t_stack_node **stack, t_processed_input input);
+void				set_length(t_processed_input *input, int n);
 
 #endif

@@ -33,3 +33,8 @@ void	ft_free_array(char **str)
 		free(str[i++]);
 	free (str);
 }
+
+void	set_length(t_processed_input *input, int n)
+{
+	input->length = n;
+}

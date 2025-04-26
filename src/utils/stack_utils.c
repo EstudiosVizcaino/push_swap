@@ -12,18 +12,20 @@
 
 #include "utils.h"
 
-void	stack_init(t_stack_node **stack, int *nbs)
+void	stack_init(t_stack_node **stack, t_processed_input input)
 {
 	int				i;
 	t_stack_node	*node;
 	//t_stack_node	*last_node;
 	i = 0;
-	if (!nbs || !stack)
-		return (free (nbs));
+	if (!input.nbs || !stack || input.length == -1)
+		return (free (input.nbs));
 	node = ft_calloc(1, sizeof(t_stack_node));
 	if (!node)
-		return (free (nbs));
+		return (free (input.nbs));
 	node->next = NULL;
-	node->nbr = nbs[i];
-	return (free(nbs), free (node));
+	node->nbr = input.nbs[i];
+	*stack = node;
+	free (input.nbs);
+	free (node);
 }

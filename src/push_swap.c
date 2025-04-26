@@ -19,7 +19,7 @@ t_processed_input	manage_input(int argc, char **argv)
 	char				**first_arg;
 
 	if (ft_str_is_only_space(argv[1]))
-		input.length = -1;
+		return (set_length(&input, -1), input);
 	first_arg = ft_split(argv[1], ' ');
 	if (first_arg && *first_arg && **first_arg && argc == 2
 		&& (ft_strlen2(first_arg) >= 1))
@@ -41,8 +41,8 @@ int	main(int argc, char **argv)
 //Implement error checking and frees into stack_init
 	input = manage_input(argc, argv);
 	if (input.length == -1)
-		print_error();
-	stack_init(&a, input.nbs);
+		return (print_error(), -1);
+	stack_init(&a, input);
 	printf("ARGC (1) = %i\n", (argc - 1));
 	printf("ARGC (2) = %i\n", input.length);
 	return (0);

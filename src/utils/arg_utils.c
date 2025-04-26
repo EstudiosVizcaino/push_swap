@@ -152,15 +152,15 @@ t_processed_input	sanitize_args(int argc, char **argv)
 	i = 0;
 	argc = check_count(argc, argv);
 	if (argc == -1 || !(only_numbers(argv)))
-		input.length = -1;
+		return (set_length(&input, -1), input);
 	else
 		input.length = argc;
 	input.nbs = ft_calloc((argc + 1), sizeof(int));
 	if (!input.nbs)
-		input.length = -1;
+		return (set_length(&input, -1), input);
 	input.nbs = extract_nbs(input.nbs, argv);
 	if (has_repeated_numbers(argc, input.nbs))
-		input.length = -1;
+		return (set_length(&input, -1), input);
 	input.nbs = brutal_sort(input.nbs, argc);
 	while (i < argc)
 		printf("%i, ", input.nbs[i++]);
