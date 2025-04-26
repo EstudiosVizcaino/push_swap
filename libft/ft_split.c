@@ -78,8 +78,8 @@ size_t	ft_wordcount(char const *s, char c)
 	wordcount = 0;
 	while (s[i] != '\0')
 	{
-		if ((i == 0 && s[i] != c) || \
-		(s[i] == c && s[i + 1] != '\0' && s[i + 1] != c))
+		if ((i == 0 && s[i] != c) || (s[i] == c
+				&& s[i + 1] != '\0' && s[i + 1] != c))
 			wordcount++;
 		i++;
 	}
