@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   input_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/07 23:43:05 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/13 14:52:57 by cvizcain         ###   ########.fr       */
+/*   Created: 2025/05/13 14:29:03 by cvizcain          #+#    #+#             */
+/*   Updated: 2025/05/13 14:52:51 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int	ft_strlen2(char **str)
+void	set_length(t_processed_input *input, int n)
 {
-	int	count;
-
-	count = 0;
-	while (str[count])
-		++count;
-	return (count);
+	input->length = n;
 }
-
-void	ft_free_array(char **str)
+int	*ft_get_index(t_processed_input input)
 {
-	int	i;
+	int	*index;
 
-	i = 0;
-	if (str == NULL || *str == NULL)
-		return ;
-	while (str[i])
-		free(str[i++]);
-	free (str);
+	index = input.index;
+	return (index);
 }
-
-
