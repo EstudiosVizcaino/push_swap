@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/26 00:38:02 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/13 14:08:13 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,7 +161,7 @@ t_processed_input	sanitize_args(int argc, char **argv)
 	input.nbs = extract_nbs(input.nbs, argv);
 	if (has_repeated_numbers(argc, input.nbs))
 		return (set_length(&input, -1), input);
-	input.nbs = brutal_sort(input.nbs, argc);
+	input.nbs = bubble_sort(input.nbs, argc);
 	while (i < argc)
 		printf("%i, ", input.nbs[i++]);
 	printf("\n");

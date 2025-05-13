@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   brutal_sort.c                                      :+:      :+:    :+:   */
+/*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 20:42:45 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/12 21:07:17 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/13 13:58:12 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int	*brutal_sort(int *tab, int len)
+int	*bubble_sort(int *tab, int len)
 {
 	int	i;
 	int	j;
