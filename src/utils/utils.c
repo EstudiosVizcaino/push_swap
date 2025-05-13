@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 23:43:05 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/13 14:52:57 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/13 14:58:51 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,3 @@ void	ft_free_array(char **str)
 		free(str[i++]);
 	free (str);
 }
-
-
