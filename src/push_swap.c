@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/26 00:41:09 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:40:10 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	main(int argc, char **argv)
 	//b = NULL;
 	if (argc < 2)
 		return (-1);
-//Implement error checking and frees into stack_init
 	input = manage_input(argc, argv);
 	if (input.length == -1)
 		return (print_error(), -1);

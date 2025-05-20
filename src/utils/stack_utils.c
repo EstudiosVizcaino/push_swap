@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/20 17:08:28 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:41:06 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	stack_init(t_stack_node **stack, t_processed_input input)
 	printf("\n");
 	while (i < input.length)
 	{
-		printf("%i | %i\t", input.nbs[i], get_position(input.index, input.nbs[i]));
+		printf("%i | %i\t", input.nbs[i],
+			get_position(input.index, input.nbs[i]));
 		++i;
 	}
 	printf("\n");
