@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 20:42:45 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/20 17:50:11 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/20 18:46:13 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ int	*bubble_sort(int *tab, int len)
 {
 	int	i;
 	int	j;
-	int	max_nb;
-	int	min_nb;
-	int	count;
+	int	tmp;
 	int	*temp;
+	int	count;
 
 	i = 0;
 	count = 0;
@@ -46,11 +45,10 @@ int	*bubble_sort(int *tab, int len)
 		{
 			if (temp[j] > temp[j + 1])
 			{
-				max_nb = temp[j];
-				min_nb = temp[j + 1];
-			 temp[j] = min_nb;
-			 temp[j + 1] = max_nb;
-				count++;
+				tmp = temp[j];
+				temp[j] = temp[j + 1];
+				temp[j + 1] = tmp;
+				++count;
 			}
 			j++;
 		}
