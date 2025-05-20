@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/20 17:40:10 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:52:06 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	main(int argc, char **argv)
 	stack_init(&a, input);
 	printf("ARGC (1) = %i\n", (argc - 1));
 	printf("ARGC (2) = %i\n", input.length);
-	return (0);
+	return (free(input.index), 0);
 }
 	// while (argv[i])
 	// 	printf("-> '%s'\n", argv[i++]);
