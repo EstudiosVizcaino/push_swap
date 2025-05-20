@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:05:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/13 14:08:37 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:38:11 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ void				ft_free_array(char **str);
 int					*bubble_sort(int *tab, int len);
 void				stack_init(t_stack_node **stack, t_processed_input input);
 void				set_length(t_processed_input *input, int n);
+int					get_position(int *nbs, int nb);
+
 
 #endif
