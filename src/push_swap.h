@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:16 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/13 14:12:26 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/20 15:43:54 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <stdbool.h>
 # include <limits.h>
 # include "utils/utils.h"
-# include "ops/operations.h"
 # include "../libft/libft.h"
 
 typedef struct s_stack_node
