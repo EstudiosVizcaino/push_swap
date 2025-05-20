@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/13 14:08:13 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/05/20 17:07:54 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,15 +155,19 @@ t_processed_input	sanitize_args(int argc, char **argv)
 		return (set_length(&input, -1), input);
 	else
 		input.length = argc;
-	input.nbs = ft_calloc((argc + 1), sizeof(int));
+	input.nbs = ft_calloc((input.length + 1), sizeof(int));
 	if (!input.nbs)
 		return (set_length(&input, -1), input);
 	input.nbs = extract_nbs(input.nbs, argv);
-	if (has_repeated_numbers(argc, input.nbs))
+	if (has_repeated_numbers(input.length, input.nbs))
 		return (set_length(&input, -1), input);
-	input.nbs = bubble_sort(input.nbs, argc);
-	while (i < argc)
+	input.index = bubble_sort(input.nbs, input.length);
+	while (i < input.length)
 		printf("%i, ", input.nbs[i++]);
+	printf("\n");
+	i = 0;
+	while (i < input.length)
+		printf("%i, ", input.index[i++]);
 	printf("\n");
 	return (input);
 }
