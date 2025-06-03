@@ -6,26 +6,26 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/20 17:41:06 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/03 17:41:57 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-void	stack_init(t_stack_node **stack, t_processed_input input)
+void	stack_init(t_stack_node *stack_a, t_stack_node *stack_b, t_processed_input input)
 {
 	int				i;
 	t_stack_node	*node;
 	//t_stack_node	*last_node;
 	i = 0;
-	if (!input.nbs || !stack || input.length == -1)
+	if (!input.nbs || !stack_a || !stack_b || input.length == -1)
 		return (free (input.nbs));
 	node = ft_calloc(1, sizeof(t_stack_node));
 	if (!node)
 		return (free (input.nbs));
 	node->next = NULL;
 	node->nbr = input.nbs[i];
-	*stack = node;
+	stack_a = node;
 	printf("\n");
 	while (i < input.length)
 	{
@@ -38,14 +38,14 @@ void	stack_init(t_stack_node **stack, t_processed_input input)
 	free (node);
 }
 
-void	free_stack(t_stack_node **stack)
+void	free_stack(t_stack_node *stack)
 {
 	t_stack_node	*tmp;
 
-	while (*stack)
+	while (stack)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		tmp = stack->next;
+		free(stack);
+		stack = tmp;
 	}
 }

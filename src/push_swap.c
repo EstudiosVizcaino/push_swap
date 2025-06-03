@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/20 17:52:06 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/03 17:29:46 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,15 @@ int	main(int argc, char **argv)
 {
 	t_processed_input	input;
 	t_stack_node		*a;
-	//t_stack_node		*b;
+	t_stack_node		*b;
 	a = NULL;
-	//b = NULL;
+	b = NULL;
 	if (argc < 2)
 		return (-1);
 	input = manage_input(argc, argv);
 	if (input.length == -1)
 		return (print_error(), -1);
-	stack_init(&a, input);
+	stack_init(&a, &b, input);
 	printf("ARGC (1) = %i\n", (argc - 1));
 	printf("ARGC (2) = %i\n", input.length);
 	return (free(input.index), 0);
