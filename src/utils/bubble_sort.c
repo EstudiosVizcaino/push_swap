@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 20:42:45 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/20 18:46:13 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/03 17:26:18 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,8 @@ int	*bubble_sort(int *tab, int len)
 	int	j;
 	int	tmp;
 	int	*temp;
-	int	count;
 
 	i = 0;
-	count = 0;
 	temp = intcpy(tab, len);
 	while (i < len - 1)
 	{
@@ -48,13 +46,11 @@ int	*bubble_sort(int *tab, int len)
 				tmp = temp[j];
 				temp[j] = temp[j + 1];
 				temp[j + 1] = tmp;
-				++count;
 			}
 			j++;
 		}
 		i++;
 	}
-	printf("Movement Count: %i\n", count);
 	return (temp);
 }
 
