@@ -6,16 +6,25 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/03 18:39:06 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:20:01 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
+t_stack_node	*find_last(t_stack_node *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
 static void	append_node(t_stack_node **stack, int n)
 {
 	t_stack_node	*node;
-	//t_stack_node	*last_node;
+	t_stack_node	*last_node;
 
 	if (!stack)
 		return ;
@@ -24,6 +33,18 @@ static void	append_node(t_stack_node **stack, int n)
 		return ;
 	node->next = NULL;
 	node->nbr = n;
+	node->cheapest = 0;
+	if (!(*stack))
+	{
+		*stack = node;
+		node->prev = NULL;
+	}
+	else
+	{
+		last_node = find_last(*stack);
+		last_node->next = node;
+		node->prev = last_node;
+	}
 }
 
 void	stack_init(t_stack_node **stack_a, t_processed_input input)
@@ -33,15 +54,20 @@ void	stack_init(t_stack_node **stack_a, t_processed_input input)
 	i = 0;
 	if (!input.nbs || !stack_a || input.length == -1)
 		return (free (input.nbs));
-	printf("\n"); /** Shows received numbers with position in the array */
+	printf("\n");
+	/** (IGNORE & DELETE) Shows received numbers with position in the array */
 	while (i < input.length)
 	{
 		printf("%i | %i\t", input.nbs[i],
 			get_position(input.index, input.nbs[i]));
 		++i;
 	}
-	if (0)
-		append_node(stack_a, 2);
+	i = 0;
+	while (i < input.length)
+	{
+		append_node(stack_a, input.nbs[i]);
+		++i;
+	}
 	printf("\n");
 	free (input.nbs);
 }
