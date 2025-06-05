@@ -6,12 +6,12 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:55:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/04/24 13:55:47 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 17:27:33 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OPERATIONS_H
 # define OPERATIONS_H
-# include "../push_swap.h"
+# include "../utils/utils.h"
 
 #endif

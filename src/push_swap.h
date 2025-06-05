@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:16 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/05/20 15:43:54 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 17:18:00 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define PUSH_SWAP_H
 # include <stdbool.h>
 # include <limits.h>
-# include "utils/utils.h"
 # include "../libft/libft.h"
 
 typedef struct s_stack_node
