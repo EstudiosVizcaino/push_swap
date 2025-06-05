@@ -6,11 +6,12 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 17:09:15 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 17:20:55 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils/utils.h"
+#include "ops/operations.h"
 #include <stdio.h>
 
 t_processed_input	manage_input(int argc, char **argv)
@@ -46,6 +47,8 @@ int	main(int argc, char **argv)
 	if (!stack_sorted(a))
 	{
 		printf("\nNOT RIGHT ORDER\n");
+		if (stack_len(a) == 3)
+			sort_three(&a);
 	}
 	printf("ARGC (1) = %i\n", (argc - 1));
 	printf("ARGC (2) = %i\n", input.length);
