@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 16:20:01 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:26:16 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,14 +72,20 @@ void	stack_init(t_stack_node **stack_a, t_processed_input input)
 	free (input.nbs);
 }
 
-void	free_stack(t_stack_node *stack)
+void	free_stack(t_stack_node **stack)
 {
 	t_stack_node	*tmp;
+	t_stack_node	*current;
 
-	while (stack)
+	if (!stack)
+		return ;
+	current = *stack;
+	while (current)
 	{
-		tmp = stack->next;
-		free(stack);
-		stack = tmp;
+		tmp = current->next;
+		current->nbr = 0;
+		free(current);
+		current = tmp;
 	}
+	*stack = NULL;
 }
