@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 16:29:08 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 17:09:15 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int	main(int argc, char **argv)
 	if (input.length == -1)
 		return (print_error(), -1);
 	stack_init(&a, input);
+	if (!stack_sorted(a))
+	{
+		printf("\nNOT RIGHT ORDER\n");
+	}
 	printf("ARGC (1) = %i\n", (argc - 1));
 	printf("ARGC (2) = %i\n", input.length);
 	return (free(input.index), free_stack(&a), 0);
