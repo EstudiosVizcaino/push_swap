@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:05:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/03 18:21:22 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 16:28:08 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void				stack_init(t_stack_node **stack_a, t_processed_input input);
 void				set_length(t_processed_input *input, int n);
 int					get_position(int *nbs, int nb);
 int					*intcpy(int *src, int len);
+void				free_stack(t_stack_node **stack);
 
 #endif
