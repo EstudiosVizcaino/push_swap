@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 16:52:04 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/05 17:23:49 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,17 @@ static void	append_node(t_stack_node **stack, int n)
 		node->prev = last_node;
 	}
 }
-int	get_node_count(t_stack_node **stack)
-{
-	int	count;
-	t_stack_node *tmp;
 
-	if (!*stack)
+int	stack_len(t_stack_node *stack)
+{
+	int				count;
+	t_stack_node	*tmp;
+
+	if (!stack)
 		return (0);
-	tmp = *stack;
+	tmp = stack;
 	count = 1;
-	while(tmp->next)
+	while (tmp->next)
 	{
 		tmp = tmp->next;
 		++count;
@@ -85,7 +86,7 @@ void	stack_init(t_stack_node **stack_a, t_processed_input input)
 		++i;
 	}
 	printf("\n");
-	printf("Number of nodes: %i\n", get_node_count(stack_a));
+	printf("Number of nodes: %i\n", stack_len(*stack_a));
 	free (input.nbs);
 }
 
