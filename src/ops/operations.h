@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:55:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 17:28:24 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/06 12:27:35 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 # include "../utils/utils.h"
 
 void	sort_three(t_stack_node **stack);
+void	print_stack(t_stack_node *stack);
 
 #endif
