@@ -1,0 +1,24 @@
+01 - Implement movements (ra, rb, rr), (pa, pb), (rra, rrv, rrr), (sa, sb, ss) in same file ops.c (four functions in total)
+02 - Implement smaller algorithms and check for correct behaviour (maybe start using provided checker?)
+03 - Perform multiple leak checks with Valgrind
+04 - Fix possible errors
+05 - Adapt and implement Turk algorithm
+06 - Check and fix possible errors
+07 - Use provided checker and depending on the outcome, go back to step 5
+08 - Preform multiple leak checks with Valgrind
+09 - Perform multiple leak checks with Valgrind while using provided checker
+10 - Ask for feedback, evaluate possible recommendations, and fix any errors found
+11 - Get ready to get evaluated!
+
+----------------------------------------------------------------------------------------------------------------------------
+01 - KO
+02 - KO
+03 - KO
+04 - KO
+05 - KO
+06 - KO
+07 - KO
+08 - KO
+09 - KO
+10 - KO
+11 - KO
