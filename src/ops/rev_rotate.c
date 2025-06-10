@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:07:19 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/10 14:15:31 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/10 15:09:19 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	reverse_rotate(t_stack_node **stack)
 {
-	if (!*stack)
+	if (!*stack || !(*stack)->next)
 		return ;
 }
 

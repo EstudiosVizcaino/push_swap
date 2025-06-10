@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:10:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/10 14:16:09 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/10 15:09:29 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	rotate(t_stack_node **stack)
 {
-	if (!*stack)
+	if (!*stack || !(*stack)->next)
 		return ;
 }
 

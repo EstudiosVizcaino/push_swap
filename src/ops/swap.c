@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:11:55 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/10 14:16:41 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/10 15:10:03 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	swap(t_stack_node **stack)
 {
-	if (!*stack)
+	if (!*stack || !(*stack)->next)
 		return ;
 }
 
