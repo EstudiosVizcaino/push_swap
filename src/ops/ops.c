@@ -6,7 +6,8 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/06 20:08:30 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/06 20:08:34 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/10 14:26:35 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "operations.h"
