@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 20:42:45 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/06 12:34:05 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/10 14:42:29 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,27 +58,30 @@ int	*bubble_sort(int *tab, int len)
 void	bubble_sort2(t_stack_node **stack)
 {
 	t_stack_node	*current;
-	t_stack_node	*tmp;
+	int				tmp;
+	int				swapped;
 	int				count;
 
 	count = 0;
-	current = *stack;
-	while (!stack_sorted(*stack))
+	if (!stack || !*stack)
+		return ;
+	swapped = 1;
+	while (swapped)
 	{
-		if (!stack_sorted(*stack) && current == NULL)
+		swapped = 0;
+		current = *stack;
+		while (current && current->next)
 		{
-			current = *stack;
-		}
-		if (current->nbr > current->next->nbr)
-		{
-			tmp = current->next;
-			tmp->next = current;
-			current->prev = tmp;
-			print_stack(*stack);
-		}
-		else
+			if (current->nbr > current->next->nbr)
+			{
+				tmp = current->nbr;
+				current->nbr = current->next->nbr;
+				current->next->nbr = tmp;
+				swapped = 1;
+			}
 			current = current->next;
-		count++;
+			count++;
+		}
 	}
 	printf("Count in bubble_sort2: %i\n", count);
 }
