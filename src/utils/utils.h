@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:05:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 17:23:21 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/06 11:40:44 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int					*intcpy(int *src, int len);
 void				free_stack(t_stack_node **stack);
 bool				stack_sorted(t_stack_node *stack);
 int					stack_len(t_stack_node *stack);
+void				bubble_sort2(t_stack_node **stack);
 
 #endif

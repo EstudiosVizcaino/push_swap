@@ -6,11 +6,12 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/12 20:42:45 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 18:13:54 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/06 12:34:05 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+#include "../ops/operations.h"
 
 int	*intcpy(int *src, int len)
 {
@@ -54,27 +55,32 @@ int	*bubble_sort(int *tab, int len)
 	return (temp);
 }
 
-void	*bubble_sort2(t_stack_node **stack)
+void	bubble_sort2(t_stack_node **stack)
 {
 	t_stack_node	*current;
 	t_stack_node	*tmp;
+	int				count;
 
+	count = 0;
 	current = *stack;
 	while (!stack_sorted(*stack))
 	{
+		if (!stack_sorted(*stack) && current == NULL)
+		{
+			current = *stack;
+		}
 		if (current->nbr > current->next->nbr)
 		{
 			tmp = current->next;
-			tmp->prev = current->prev;
-			tmp = tmp->next;
-			temp[j] = temp[j + 1];
-			temp[j + 1] = tmp;
-		last_node = find_last(*stack);
-		last_node->next = node;
-		node->prev = last_node;
-		cu
+			tmp->next = current;
+			current->prev = tmp;
+			print_stack(*stack);
 		}
+		else
+			current = current->next;
+		count++;
 	}
+	printf("Count in bubble_sort2: %i\n", count);
 }
 
 /**int	main(void)
