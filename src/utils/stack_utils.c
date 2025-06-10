@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/05 17:23:49 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/10 15:15:48 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,20 +90,17 @@ void	stack_init(t_stack_node **stack_a, t_processed_input input)
 	free (input.nbs);
 }
 
-void	free_stack(t_stack_node **stack)
+t_stack_node	*find_max(t_stack_node *stack)
 {
-	t_stack_node	*tmp;
-	t_stack_node	*current;
+	t_stack_node	*max;
 
-	if (!stack)
-		return ;
-	current = *stack;
-	while (current)
+	max = stack;
+	while (stack && stack->next)
 	{
-		tmp = current->next;
-		current->nbr = 0;
-		free(current);
-		current = tmp;
+		if (stack->nbr < stack->next->nbr)
+			max = stack->next;
+		stack = stack->next;
 	}
-	*stack = NULL;
+	printf("Max is: %i\n", max->nbr);
+	return (max);
 }
