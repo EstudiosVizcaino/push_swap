@@ -1,4 +1,4 @@
-01 - Implement movements (ra, rb, rr), (pa, pb), (rra, rrv, rrr), (sa, sb, ss) in same file ops.c (four functions in total)
+01 - Implement movements (ra, rb, rr), (pa, pb), (rra, rrv, rrr), (sa, sb, ss) in separate files (four files in total)
 02 - Implement smaller algorithms and check for correct behaviour (maybe start using provided checker?)
 03 - Perform multiple leak checks with Valgrind
 04 - Fix possible errors
