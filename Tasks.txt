@@ -8,7 +8,8 @@
 08 - Preform multiple leak checks with Valgrind
 09 - Perform multiple leak checks with Valgrind while using provided checker
 10 - Ask for feedback, evaluate possible recommendations, and fix any errors found
-11 - Get ready to get evaluated!
+11 - Update Doxygens!
+12 - Get ready to get evaluated!
 
 ----------------------------------------------------------------------------------------------------------------------------
 01 - KO
@@ -22,3 +23,4 @@
 09 - KO
 10 - KO
 11 - KO
+12 - KO
