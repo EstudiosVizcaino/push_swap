@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:05:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/06 11:40:44 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/10 15:15:53 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void				free_stack(t_stack_node **stack);
 bool				stack_sorted(t_stack_node *stack);
 int					stack_len(t_stack_node *stack);
 void				bubble_sort2(t_stack_node **stack);
+t_stack_node		*find_last(t_stack_node *stack);
+t_stack_node		*find_max(t_stack_node *stack);
 
 #endif
