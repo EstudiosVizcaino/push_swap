@@ -1,5 +1,5 @@
-00 - Finish implementation of `sort_three()`
-01 - Implement movements (ra, rb, rr), (pa, pb), (rra, rrv, rrr), (sa, sb, ss) in separate files (four files in total)
+00 - Implement movements (ra, rb, rr), (pa, pb), (rra, rrv, rrr), (sa, sb, ss) in separate files (four files in total)
+01 - Finish implementation of `sort_three()`
 02 - Implement smaller algorithms and check for correct behaviour (maybe start using provided checker?)
 03 - Perform multiple leak checks with Valgrind
 04 - Fix possible errors
