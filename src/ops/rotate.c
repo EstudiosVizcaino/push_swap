@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:10:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/16 14:30:22 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/16 14:41:47 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,44 @@ static void	rotate(t_stack_node **stack)
 	last_node->next->next = NULL;
 }
 
+/**
+ * @brief Rotates stack A upwards by one.
+ *
+ * The first element of stack A becomes the last one. This function
+ * performs the operation and writes "ra\n" to standard output.
+ *
+ * @param a Pointer to the pointer of the head of stack A.
+ */
 void	ra(t_stack_node **a)
 {
 	rotate(a);
 	write (1, "ra\n", 3);
 }
 
+/**
+ * @brief Rotates stack B upwards by one.
+ *
+ * The first element of stack B becomes the last one. This function
+ * performs the operation and writes "rb\n" to standard output.
+ *
+ * @param b Pointer to the pointer of the head of stack B.
+ */
 void	rb(t_stack_node **b)
 {
 	rotate(b);
 	write (1, "rb\n", 3);
 }
 
+/**
+ * @brief Rotates both stacks A and B upwards by one simultaneously.
+ *
+ * The first element of each stack becomes the last one.
+ * This function performs the operation on both stacks and 
+ * writes "rr\n" to standard output.
+ *
+ * @param a Pointer to the pointer of the head of stack A.
+ * @param b Pointer to the pointer of the head of stack B.
+ */
 void	rr(t_stack_node **a, t_stack_node **b)
 {
 	rotate(a);
