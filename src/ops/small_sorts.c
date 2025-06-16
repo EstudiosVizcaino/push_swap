@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:12:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/16 15:11:15 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/16 15:14:28 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,17 @@ void	print_stack(t_stack_node *stack)
 	printf("\n------------------\n");
 }
 
+/**
+ * @brief Sorts a stack of exactly three nodes in ascending order.
+ *
+ * This function assumes that the stack `a` contains exactly three nodes.
+ * It finds the node with the maximum value and rotates or reverse-rotates
+ * the stack to move it to the correct position. Then, if the top two nodes
+ * are in the wrong order, it swaps them. The function uses the stack 
+ * operations `ra`, `rra`, and `sa` to sort the elements.
+ *
+ * @param a Pointer to the head pointer of the stack to sort.
+ */
 void	sort_three(t_stack_node **a)
 {
 	t_stack_node	*biggest_node;
@@ -33,7 +44,7 @@ void	sort_three(t_stack_node **a)
 	if (biggest_node == *a)
 		ra(a);
 	else if ((*a)->next == biggest_node)
-			rra(a);
+		rra(a);
 	if ((*a)->nbr > (*a)->next->nbr)
 		sa(a);
 	print_stack(*a);
