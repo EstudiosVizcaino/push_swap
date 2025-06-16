@@ -6,16 +6,31 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:07:19 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/12 15:04:47 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/16 14:19:55 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
-/// @brief Moves bottom node to head node
-/// @param stack 
+/**
+ * @brief Moves the last node of the stack to the top (reverse rotate).
+ *
+ * This function performs a reverse rotation on a doubly linked list
+ * representing a stack. It moves the last node to the top, effectively
+ * rotating all other nodes down by one position.
+ *
+ * - If the stack is empty or has only one node, the function returns.
+ * - Finds the last node (Last) of the stack.
+ * - (Last)->prev is now at the bottom of the stack and points to NULL
+ * - Sets (Last)->next to point to the original head of the stack.
+ * - Sets (Last)->prev to NULL, making it the new head.
+ * - Updates the old head's 'prev' pointer to point back to (Last).
+ *
+ * @param stack Pointer to the pointer of the head node of the stack.
+ */
 static void	reverse_rotate(t_stack_node **stack)
 {
 	t_stack_node	*last;
+
 	if (!*stack || !(*stack)->next)
 		return ;
 	last = find_last(*stack);
@@ -24,7 +39,6 @@ static void	reverse_rotate(t_stack_node **stack)
 	last->prev = NULL;
 	*stack = last;
 	last->next->prev = last;
-
 }
 
 void	rra(t_stack_node **a)
