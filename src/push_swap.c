@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:12 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/10 14:26:21 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/16 16:10:34 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main(int argc, char **argv)
 	stack_init(&a, input);
 	if (!stack_sorted(a))
 	{
+		if (stack_len(a) == 2)
+			sa(&a);
 		printf("\nNOT RIGHT ORDER\n");
 		if (stack_len(a) == 3)
 			sort_three(&a);
