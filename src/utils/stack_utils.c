@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/10 15:15:48 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/17 14:10:40 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int	stack_len(t_stack_node *stack)
 void	stack_init(t_stack_node **stack_a, t_processed_input input)
 {
 	int				i;
-	//t_stack_node	*last_node;
 	i = 0;
 	if (!input.nbs || !stack_a || input.length == -1)
 		return (free (input.nbs));
@@ -97,7 +96,7 @@ t_stack_node	*find_max(t_stack_node *stack)
 	max = stack;
 	while (stack && stack->next)
 	{
-		if (stack->nbr < stack->next->nbr)
+		if (max->nbr < stack->next->nbr)
 			max = stack->next;
 		stack = stack->next;
 	}
