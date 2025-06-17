@@ -1,9 +1,9 @@
-00 - Implement movements (ra, rb, rr), (pa, pb), (rra, rrv, rrr), (sa, sb, ss) in separate files (four files in total)
-01 - Finish implementation of `sort_three()`
-02 - Implement smaller algorithms and check for correct behaviour (maybe start using provided checker?)
-03 - Perform multiple leak checks with Valgrind
-04 - Fix possible errors
-05 - Adapt and implement Turk algorithm
+00 - Implement movements (ra, rb, rr), (pa, pb), (rra, rrv, rrr), (sa, sb, ss) in separate files (four files in total) ✅
+01 - Finish implementation of `sort_three()` ✅
+02 - Implement smaller algorithms and check for correct behaviour (maybe start using provided checker?) ✅
+03 - Perform multiple leak checks with Valgrind ✅
+04 - Fix possible errors ✅
+05 - Adapt and implement Turk algorithm ❌
 06 - Check and fix possible errors
 07 - Use provided checker and depending on the outcome, go back to step 5
 08 - Preform multiple leak checks with Valgrind
