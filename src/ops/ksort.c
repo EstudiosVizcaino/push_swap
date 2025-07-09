@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:09:11 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/03 16:32:29 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/09 21:31:22 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ static t_stack_node	*rebuild_stack_a(t_stack_node *a, t_stack_node *b,
 	while (stack_size - 1 >= 0)
 	{
 		rotate_cost = nodes_to_index(b, stack_size - 1);
-		rev_rotate_cost = (stack_size + 3) - rotate_cost;
+		rev_rotate_cost = stack_size - rotate_cost;
 		if (rotate_cost <= rev_rotate_cost)
 		{
 			while (b->s_index != stack_size - 1)
