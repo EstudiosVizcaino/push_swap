@@ -109,7 +109,10 @@ else
     echo "✅ $NUMBERS" >> numbers_used.txt
 fi
 
+cat "$VALGRIND_LOG" > valgrind_log.txt
+
+echo "$OUTPUT" > moves.txt
+
 # Clean up
 rm "$VALGRIND_LOG"
-
 #Infinite loop 3 6 1 2
