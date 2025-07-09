@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:12:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/09 16:19:50 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/09 17:09:50 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,29 +104,29 @@ void	sort_three(t_stack_node **stack, int length)
  * @param length Number of elements in stack 'a'.
  */
 
-void	s_insertion_sort(t_stack_node **a, t_stack_node **b, int length)
+void	s_insertion_sort(t_stack_node **a, t_stack_node **b, int len)
 {
 	int	min_index;
-	int	iter;
-	int	n;
+	int	pos;
+	int	i;
+	int	total;
 
-	iter = 0;
-	n = length;
-	while (iter++ < n - 3)
+	i = 0;
+	total = len;
+	while (i++ < total - 3)
 	{
-		min_index = get_min_index((*a));
-		if (nodes_to_index((*a), min_index) <= n - min_index - \
-				nodes_to_index((*a), min_index))
+		min_index = get_min_index(*a);
+		pos = nodes_to_index(*a, min_index);
+		if (pos <= total - min_index - pos)
 			while ((*a)->s_index != min_index)
 				ra(a);
 		else
 			while ((*a)->s_index != min_index)
 				rra(a);
 		pb(b, a);
-		length--;
+		len--;
 	}
-	sort_three(a, length);
-	iter = 0;
-	while (iter++ < n - 3)
+	sort_three(a, len);
+	while (--i > 0)
 		pa(a, b);
 }
