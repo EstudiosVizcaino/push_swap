@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:05:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/03 15:09:10 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:42:56 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int					is_sorted(t_stack_node *stack);
 int					get_min_index(t_stack_node *stack);
 int					get_index(int n, int *arr);
 int					ft_sqrt(int number);
-t_stack_node		*init(t_stack_node *stack, int *nb, int c);
+t_stack_node		*init(t_stack_node *stack, int *nb, int size);
 void				push_stack(t_stack_node **stack, int index, int data);
 void				insertion_sort(int array[], int n);
 

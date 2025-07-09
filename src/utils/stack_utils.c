@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:43:29 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/03 15:10:03 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/09 18:48:46 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,21 @@ int	get_min_index(t_stack_node *stack)
  *
  * @param stack Pointer to the initial stack (can be NULL).
  * @param nb Array of integers to initialize the stack.
- * @param c Number of elements in the array.
+ * @param size Number of elements in the array.
  * @return t_stack_node* Pointer to the initialized stack.
  */
-t_stack_node	*init(t_stack_node *stack, int *nb, int c)
+t_stack_node	*init(t_stack_node *stack, int *nb, int size)
 {
 	int				i;
 	t_stack_node	*tmp;
 
-	i = c - 1;
+	i = size - 1;
 	while (i >= 0)
 	{
 		push_stack(&stack, 0, nb[i]);
 		i--;
 	}
-	insertion_sort(nb, c);
+	insertion_sort(nb, size);
 	i = 0;
 	tmp = stack;
 	while (tmp)
