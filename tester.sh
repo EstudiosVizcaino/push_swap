@@ -1,13 +1,19 @@
 #!/bin/bash
 
-# Full input from https://push-swap42-visualizer.vercel.app/
-INPUT="./push_swap asdasd"
+# Define 
+INT_MIN=-2147483648
+INT_MAX=2147483647
 
-# System number generator
-#ARG=$(seq 1 500 | sort -R | tr '\n' ' ');
+# Amount of numbers to be generated
+n=500
 
-# Cleans the input from https://push-swap42-visualizer.vercel.app/
-NUMBERS=$(echo "$INPUT" | sed -E 's/^[^ ]+ //; s/ \|.*$//')
+# Random number generator
+if (( RANDOM % 2 )); then
+    RANGE=$((INT_MAX - INT_MIN + 1))
+    NUMBERS=$(shuf -i 0-$((RANGE-1)) -n $n | awk -v min="$INT_MIN" '{print min + $1}' | tr '\n' ' ')
+else
+    NUMBERS=$(seq 1 $n | sort -R | tr '\n' ' ')
+fi
 
 # Stores output from the program
 OUTPUT=$(./push_swap $NUMBERS)
@@ -35,7 +41,7 @@ elif [ "$COUNT" -eq 100 ]; then
     fi
 elif [ "$COUNT" -eq 5 ]; then
     if [ "$LINE_COUNT" -lt 12 ]; then
-        LINE_TEST="✅"
+        LINE_TEST=""
     else
         LINE_TEST="Nope! ❌"
     fi
@@ -57,7 +63,7 @@ fi
 ####################################################################################################################################################
 VALGRIND_LOG=$(mktemp)
 ARGS=$(echo "$NUMBERS")
-valgrind -s --leak-check=full ./push_swap $ARGS > /dev/null 2> "$VALGRIND_LOG"
+valgrind -s --leak-check=full --show-leak-kinds=all ./push_swap $ARGS > /dev/null 2> "$VALGRIND_LOG"
 
 # Check Valgrind output
 if grep -q "ERROR SUMMARY: 0 errors" "$VALGRIND_LOG" && grep -q "All heap blocks were freed -- no leaks are possible" "$VALGRIND_LOG"; then
@@ -81,7 +87,30 @@ echo "Checker outcome: $CHECKER_OUTCOME $CHECK_ICN"
 # Prints Valgrind Test
 echo "Valgrind: $VALGRIND_OUT"
 
-echo "$OUTPUT" >> moves.txt
+if [ "$COUNT" -eq 500 ]; then
+    if [ "$LINE_COUNT" -lt 5500 ]; then
+        echo "✅ $NUMBERS" >> numbers_used.txt
+    else
+        echo "❌ $NUMBERS" >> numbers_used.txt
+    fi
+elif [ "$COUNT" -eq 100 ]; then
+    if [ "$LINE_COUNT" -lt 700 ]; then
+        echo "✅ $NUMBERS" >> numbers_used.txt
+    else
+        echo "❌ $NUMBERS" >> numbers_used.txt
+    fi
+elif [ "$COUNT" -eq 5 ]; then
+    if [ "$LINE_COUNT" -lt 12 ]; then
+        echo "✅ $NUMBERS" >> numbers_used.txt
+    else
+        echo "❌ $NUMBERS" >> numbers_used.txt
+    fi
+else 
+    echo "✅ $NUMBERS" >> numbers_used.txt
+fi
+
+echo $OUTPUT > moves.txt
+echo $OUTPUT > valgrind_log.txt
 
 # Clean up
 rm "$VALGRIND_LOG"
