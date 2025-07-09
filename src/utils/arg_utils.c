@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 12:04:35 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/16 16:02:37 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/06/19 18:59:19 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ int	has_repeated_numbers(int length, int *nbs)
 	int	count;
 
 	i = 0;
-	printf("Length: %i\n", length);
 	while (i < length)
 	{
 		j = 0;
@@ -147,10 +146,8 @@ int	*extract_nbs(int *temp, char **argv)
 /// int array cointaining all the numbers in the order provided by the user
 t_processed_input	sanitize_args(int argc, char **argv)
 {
-	int					i;
 	t_processed_input	input;
 
-	i = 0;
 	argc = check_count(argc, argv);
 	if (argc == -1 || !(only_numbers(argv)))
 		return (set_length(&input, -1), input);
@@ -162,31 +159,5 @@ t_processed_input	sanitize_args(int argc, char **argv)
 	input.nbs = extract_nbs(input.nbs, argv);
 	if (has_repeated_numbers(input.length, input.nbs))
 		return (set_length(&input, -1), input);
-	input.index = bubble_sort(input.nbs, input.length);
-	while (i < input.length)
-		printf("%i, ", input.nbs[i++]);
-	printf("\n");
-	i = 0;
-	while (i < input.length)
-		printf("%i, ", input.index[i++]);
-	printf("\n");
 	return (input);
 }
-
-// int	is_within_limits(int size, int *nbs)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (i < size)
-// 	{
-// 		if (nbs[i] > INT_MAX || nbs[i] < (-2147483647 - 1))
-// 		{
-// 			printf("PUTAAAA\n");
-// 			print_error();
-// 			return (0);
-// 		}
-// 		++i;
-// 	}
-// 	return (1);
-// }

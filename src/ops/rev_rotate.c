@@ -6,39 +6,33 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 14:07:19 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/16 14:45:10 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/02 16:04:14 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
-/**
- * @brief Moves the last node of the stack to the top (reverse rotate).
- *
- * This function performs a reverse rotation on a doubly linked list
- * representing a stack. It moves the last node to the top, effectively
- * rotating all other nodes down by one position.
- *
- * - If the stack is empty or has only one node, the function returns.
- * - Finds the last node (Last) of the stack.
- * - (Last)->prev is now at the bottom of the stack and points to NULL
- * - Sets (Last)->next to point to the original head of the stack.
- * - Sets (Last)->prev to NULL, making it the new head.
- * - Updates the old head's 'prev' pointer to point back to (Last).
- *
- * @param stack Pointer to the pointer of the head node of the stack.
- */
-static void	reverse_rotate(t_stack_node **stack)
-{
-	t_stack_node	*last;
 
-	if (!*stack || !(*stack)->next)
+/**
+ * @brief Moves the last node of a linked list to the front (reverse rotate).
+ *
+ * Does nothing if the list is empty or has only one node.
+ *
+ * @param head Pointer to the pointer of the head node.
+ */
+static void	reverse_rotate(t_stack_node **head)
+{
+	t_stack_node	*current;
+	t_stack_node	*tmp;
+
+	if (!(*head) || !((*head)->next))
 		return ;
-	last = find_last(*stack);
-	last->prev->next = NULL;
-	last->next = *stack;
-	last->prev = NULL;
-	*stack = last;
-	last->next->prev = last;
+	current = *head;
+	while (current->next->next != NULL)
+		current = current->next;
+	tmp = current->next;
+	current->next = NULL;
+	tmp->next = *head;
+	*head = tmp;
 }
 
 /**

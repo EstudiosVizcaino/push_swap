@@ -6,12 +6,20 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:12:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/16 15:15:32 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/03 16:26:34 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "operations.h"
 
+/**
+ * @brief Prints the contents of a stack to the standard output.
+ *
+ * If the stack pointer is NULL, it calls print_error().
+ * Otherwise, it prints all the node data values in order.
+ *
+ * @param stack Pointer to the first node of the stack.
+ */
 void	print_stack(t_stack_node *stack)
 {
 	printf("------------------\nPrinting stack: \n");
@@ -19,33 +27,95 @@ void	print_stack(t_stack_node *stack)
 		print_error();
 	while (stack)
 	{
-		printf("|%i| ", stack->nbr);
+		printf("|%i| ", stack->data);
 		stack = stack->next;
 	}
 	printf("\n------------------\n");
 }
 
 /**
- * @brief Sorts a stack of exactly three nodes in ascending order.
+ * @brief Counts how many nodes until a node with a specific index.
  *
- * This function assumes that the stack `a` contains exactly three nodes.
- * It finds the node with the maximum value and rotates or reverse-rotates
- * the stack to move it to the correct position. Then, if the top two nodes
- * are in the wrong order, it swaps them. The function uses the stack 
- * operations `ra`, `rra`, and `sa` to sort the elements.
+ * Traverses the stack until it finds the node whose `s_index` matches
+ * the given `index`, counting how many nodes it passes.
  *
- * @param a Pointer to the head pointer of the stack to sort.
+ * @param stack Pointer to the start of the stack.
+ * @param index The target `s_index` to find in the stack.
+ * @return The number of nodes before the target node, or the total
+ *         length if the index is not found.
  */
-void	sort_three(t_stack_node **a)
+int	nodes_to_index(t_stack_node *stack, int index)
 {
-	t_stack_node	*biggest_node;
+	int	counter;
 
-	biggest_node = find_max(*a);
-	if (biggest_node == *a)
-		ra(a);
-	else if ((*a)->next == biggest_node)
-		rra(a);
-	if ((*a)->nbr > (*a)->next->nbr)
-		sa(a);
-	print_stack(*a);
+	counter = 0;
+	while (stack && stack->s_index != index)
+	{
+		stack = stack->next;
+		counter++;
+	}
+	return (counter);
+}
+
+/**
+ * @brief Sorts a stack of three elements
+ *
+ * If the stack is already sorted, does nothing. Otherwise, it identifies the
+ * minimum indexed element and uses swaps and rotations to sort the stack.
+ *
+ * @param stack Pointer to the stack to sort.
+ * @param length Number of elements in the stack.
+ */
+void	sort_three(t_stack_node **stack, int length)
+{
+	int	a;
+	int	b;
+	int	c;
+	int	min_s_index;
+	int	r;
+
+	if (is_sorted(*stack))
+		return ;
+	min_s_index = get_min_index(*stack);
+	r = nodes_to_index(*stack, min_s_index);
+	a = (*stack)->data;
+	b = (*stack)->next->data;
+	c = (*stack)->next->next->data;
+	if (!((a < b && b < c) || (b < c && a > c) || (c < a && a < b)))
+	{
+		sa(stack);
+		if (is_sorted(*stack))
+			return ;
+	}
+	if (r < length - r)
+		ra(stack);
+	else
+		rra(stack);
+}
+
+void	s_insertion_sort(t_stack_node **a, t_stack_node **b, int length)
+{
+	int	min_index;
+	int	iter;
+	int	n;
+
+	iter = 0;
+	n = length;
+	while (iter++ < n - 3)
+	{
+		min_index = get_min_index((*a));
+		if (nodes_to_index((*a), min_index) <= n - min_index - \
+				nodes_to_index((*a), min_index))
+			while ((*a)->s_index != min_index)
+				ra(a);
+		else
+			while ((*a)->s_index != min_index)
+				rra(a);
+		pb(b, a);
+		length--;
+	}
+	sort_three(a, length);
+	iter = 0;
+	while (iter++ < n - 3)
+		pa(a, b);
 }

@@ -3,12 +3,12 @@
 02 - Implement smaller algorithms and check for correct behaviour (maybe start using provided checker?) ✅
 03 - Perform multiple leak checks with Valgrind ✅
 04 - Fix possible errors ✅
-05 - Adapt and implement Turk algorithm ❌
-06 - Check and fix possible errors
-07 - Use provided checker and depending on the outcome, go back to step 5
-08 - Preform multiple leak checks with Valgrind
-09 - Perform multiple leak checks with Valgrind while using provided checker
-10 - Ask for feedback, evaluate possible recommendations, and fix any errors found
+05 - Adapt and implement Turk algorithm ❌ --> Implement Ksort✅
+06 - Check and fix possible errors✅
+07 - Use provided checker and depending on the outcome, go back to step 5✅
+08 - Preform multiple leak checks with Valgrind✅
+09 - Perform multiple leak checks with Valgrind while using provided checker✅
+10 - Ask for feedback, evaluate possible recommendations, and fix any errors found✅
 11 - Update Doxygens!
 12 - Get ready to get evaluated!
 
@@ -18,11 +18,11 @@
 02 - OK
 03 - OK
 04 - OK
-05 - KO
-06 - KO
-07 - KO
-08 - KO
-09 - KO
-10 - KO
+05 - OK
+06 - OK
+07 - OK
+08 - OK
+09 - OK
+10 - OK
 11 - KO
 12 - KO
