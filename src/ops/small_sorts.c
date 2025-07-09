@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:12:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/03 16:26:34 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/09 16:19:50 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,17 @@ void	sort_three(t_stack_node **stack, int length)
 	else
 		rra(stack);
 }
+
+/**
+ * @brief Sorts a small stack using a simplified insertion sort.
+ *
+ * Moves the smallest elements from stack 'a' to 'b' one by one,
+ * sorts the remaining 3 in 'a', then pushes everything back from 'b' to 'a'.
+ *
+ * @param a Pointer to stack 'a'.
+ * @param b Pointer to stack 'b'.
+ * @param length Number of elements in stack 'a'.
+ */
 
 void	s_insertion_sort(t_stack_node **a, t_stack_node **b, int length)
 {
