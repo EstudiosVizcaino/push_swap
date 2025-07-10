@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 12:22:16 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/06/19 13:59:35 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/10 19:00:37 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ typedef struct s_stack
 typedef struct s_processed_input
 {
 	int	*nbs;
-	// int	*index;
 	int	length;
 }	t_processed_input;
 
