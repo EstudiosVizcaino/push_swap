@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:12:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/09 17:09:50 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/10 17:19:23 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,39 +58,33 @@ int	nodes_to_index(t_stack_node *stack, int index)
 }
 
 /**
- * @brief Sorts a stack of three elements
+ * @brief Sorts a stack of three elements in ascending order.
  *
- * If the stack is already sorted, does nothing. Otherwise, it identifies the
- * minimum indexed element and uses swaps and rotations to sort the stack.
+ * Applies rotate (ra), reverse rotate (rra), or swap (sa) to sort the stack.
+ * - If the top is the largest, rotate it down.
+ * - If the middle is the largest, rotate it up.
+ * - If the top two are out of order, swap them.
+ * Does nothing if already sorted.
  *
  * @param stack Pointer to the stack to sort.
- * @param length Number of elements in the stack.
  */
-void	sort_three(t_stack_node **stack, int length)
+void	sort_three(t_stack_node **stack)
 {
-	int	a;
-	int	b;
-	int	c;
-	int	min_s_index;
-	int	r;
+	t_stack_node	*top;
+	t_stack_node	*middle;
+	t_stack_node	*bottom;
 
 	if (is_sorted(*stack))
 		return ;
-	min_s_index = get_min_index(*stack);
-	r = nodes_to_index(*stack, min_s_index);
-	a = (*stack)->data;
-	b = (*stack)->next->data;
-	c = (*stack)->next->next->data;
-	if (!((a < b && b < c) || (b < c && a > c) || (c < a && a < b)))
-	{
-		sa(stack);
-		if (is_sorted(*stack))
-			return ;
-	}
-	if (r < length - r)
+	top = *stack;
+	middle = top->next;
+	bottom = middle->next;
+	if (top->data > middle->data && top->data > bottom->data)
 		ra(stack);
-	else
+	else if (middle->data > top->data && middle->data > bottom->data)
 		rra(stack);
+	if ((*stack)->data > (*stack)->next->data)
+		sa(stack);
 }
 
 /**
@@ -126,7 +120,7 @@ void	s_insertion_sort(t_stack_node **a, t_stack_node **b, int len)
 		pb(b, a);
 		len--;
 	}
-	sort_three(a, len);
-	while (--i > 0)
+	sort_three(a);
+	while (*b)
 		pa(a, b);
 }

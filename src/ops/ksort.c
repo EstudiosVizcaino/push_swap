@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:09:11 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/09 21:31:22 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/10 16:50:46 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ t_stack_node	*sort(t_stack_node *a, t_stack_node *b,
 	if (stack_size == 2)
 		sa(&a);
 	else if (stack_size == 3)
-		sort_three(&a, stack_size);
+		sort_three(&a);
 	else if (stack_size <= 7)
 		s_insertion_sort(&a, &b, stack_size);
 	else if (stack_size > 7)

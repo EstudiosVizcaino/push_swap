@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 13:55:04 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/03 16:21:31 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/10 16:50:37 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void			sa(t_stack_node **a);
 void			sb(t_stack_node **b);
 void			ss(t_stack_node **a, t_stack_node **b);
 int				nodes_to_index(t_stack_node *stack, int index);
-void			sort_three(t_stack_node **stack, int length);
+void			sort_three(t_stack_node **stack);
 void			s_insertion_sort(t_stack_node **a, t_stack_node **b,
 					int length);
 t_stack_node	*sort(t_stack_node *stack_a, t_stack_node *stack_b,
