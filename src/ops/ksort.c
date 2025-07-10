@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/16 17:09:11 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/10 16:50:46 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/10 19:44:00 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ static void	split_chunks_to_b(t_stack_node **a, t_stack_node **b, int size)
  * element in 'b' to the top, then performs the most efficient operation to
  * push it to 'a'.
  *
+ * Primer bucle While puede ser tanto (stack_size) como (stack_size - 1 <= 0)
  * @param a Pointer to stack 'a'.
  * @param b Pointer to stack 'b'.
  * @param stack_size Number of elements to move back into 'a'.
@@ -69,7 +70,7 @@ static t_stack_node	*rebuild_stack_a(t_stack_node *a, t_stack_node *b,
 	int	rotate_cost;
 	int	rev_rotate_cost;
 
-	while (stack_size - 1 >= 0)
+	while (b)
 	{
 		rotate_cost = nodes_to_index(b, stack_size - 1);
 		rev_rotate_cost = stack_size - rotate_cost;
