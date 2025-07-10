@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:12:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/10 17:19:23 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/10 19:32:06 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,11 @@ void	sort_three(t_stack_node **stack)
  *
  * Moves the smallest elements from stack 'a' to 'b' one by one,
  * sorts the remaining 3 in 'a', then pushes everything back from 'b' to 'a'.
+ * 
+ * Explicación --> Similar a rebuild_a. Compara si es mejor usar ra o rra 
+ * respecto a la ubicación del index para usar el más económico y depués pa
+ * Esto lo hace hasta que quedan 3 elementos en a, que se ordenan con sort_three
+ * Depués pushea el resto de elementos a `a`
  *
  * @param a Pointer to stack 'a'.
  * @param b Pointer to stack 'b'.
