@@ -41,7 +41,7 @@ elif [ "$COUNT" -eq 100 ]; then
     fi
 elif [ "$COUNT" -eq 5 ]; then
     if [ "$LINE_COUNT" -lt 12 ]; then
-        LINE_TEST=""
+        LINE_TEST="✅"
     else
         LINE_TEST="Nope! ❌"
     fi
