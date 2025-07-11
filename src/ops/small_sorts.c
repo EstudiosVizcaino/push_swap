@@ -6,7 +6,7 @@
 /*   By: cvizcain <cvizcain@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/05 17:12:06 by cvizcain          #+#    #+#             */
-/*   Updated: 2025/07/10 19:32:06 by cvizcain         ###   ########.fr       */
+/*   Updated: 2025/07/11 16:27:04 by cvizcain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,13 +90,9 @@ void	sort_three(t_stack_node **stack)
 /**
  * @brief Sorts a small stack using a simplified insertion sort.
  *
- * Moves the smallest elements from stack 'a' to 'b' one by one,
+ * Moves the smallest elements from stack 'a' to 'b' one by one, by analazying
+ * if the target index is on the top or the lower half of the stack,
  * sorts the remaining 3 in 'a', then pushes everything back from 'b' to 'a'.
- * 
- * Explicación --> Similar a rebuild_a. Compara si es mejor usar ra o rra 
- * respecto a la ubicación del index para usar el más económico y depués pa
- * Esto lo hace hasta que quedan 3 elementos en a, que se ordenan con sort_three
- * Depués pushea el resto de elementos a `a`
  *
  * @param a Pointer to stack 'a'.
  * @param b Pointer to stack 'b'.
@@ -105,23 +101,23 @@ void	sort_three(t_stack_node **stack)
 
 void	s_insertion_sort(t_stack_node **a, t_stack_node **b, int len)
 {
-	int	min_index;
-	int	pos;
-	int	i;
-	int	total;
+	int	min_s_index;
+	int	pos_in_stack;
 
-	i = 0;
-	total = len;
-	while (i++ < total - 3)
+	while (len > 3)
 	{
-		min_index = get_min_index(*a);
-		pos = nodes_to_index(*a, min_index);
-		if (pos <= total - min_index - pos)
-			while ((*a)->s_index != min_index)
+		min_s_index = get_min_index(*a);
+		pos_in_stack = nodes_to_index(*a, min_s_index);
+		if (pos_in_stack <= len / 2)
+		{
+			while ((*a)->s_index != min_s_index)
 				ra(a);
+		}
 		else
-			while ((*a)->s_index != min_index)
+		{
+			while ((*a)->s_index != min_s_index)
 				rra(a);
+		}
 		pb(b, a);
 		len--;
 	}
