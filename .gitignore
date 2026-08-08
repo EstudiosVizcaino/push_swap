@@ -1,0 +1,13 @@
+# Build output
+push_swap
+*.o
+*.a
+a.out
+src/obj/
+
+# Test artifacts
+valgrind_log.txt
+moves.txt
+
+# OS noise
+.DS_Store
