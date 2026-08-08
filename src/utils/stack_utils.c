@@ -96,9 +96,13 @@ t_stack_node	*init(t_stack_node *stack, int *nb, int size)
 /**
  * @brief Frees nodes from a linked list stack.
  *
- * Frees all nodes in the stack unless the parameter `str` points exactly
- * to the string literal "SINGLE_NODE", in which case only the first node
- * is freed.
+ * Frees all nodes in the stack unless the parameter `str` equals
+ * "SINGLE_NODE", in which case only the first node is freed.
+ *
+ * The comparison is done on the contents of `str`, not on its address:
+ * identical string literals living in different translation units are not
+ * guaranteed to share an address, so a pointer comparison silently turns
+ * every "SINGLE_NODE" request into a full free.
  *
  * @param stack Pointer to the pointer of the stack head.
  * @param str Control string to optionally free only one node.
@@ -106,7 +110,6 @@ t_stack_node	*init(t_stack_node *stack, int *nb, int size)
 void	free_stack(t_stack_node **stack, char *str)
 {
 	t_stack_node	*tmp;
-	int				data;
 	char			*instruction;
 
 	if (!stack)
@@ -115,15 +118,12 @@ void	free_stack(t_stack_node **stack, char *str)
 	while (*stack)
 	{
 		tmp = *stack;
-		data = tmp->data;
 		*stack = tmp->next;
 		free(tmp);
 		tmp = NULL;
-		if (str == instruction)
+		if (str && !ft_strncmp(str, instruction, 12))
 			return ;
 	}
-	if (data)
-		data = 0;
 }
 
 /**
