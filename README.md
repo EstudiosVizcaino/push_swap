@@ -2,10 +2,12 @@
 
 > Sort a stack of integers with the smallest possible number of moves, using only a crippled instruction set and a second stack.
 
-[![Language](https://img.shields.io/badge/language-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
-[![Leaks](https://img.shields.io/badge/valgrind-0%20leaks-success.svg)](https://valgrind.org/)
-[![500 numbers](https://img.shields.io/badge/500%20numbers-~4900%20moves-success.svg)](#performance)
-[![School](https://img.shields.io/badge/42-Madrid-black.svg)](https://www.42madrid.com/)
+![Grade](https://img.shields.io/badge/grade-125%2F100-brightgreen?style=flat-square)
+![Norminette](https://img.shields.io/badge/norminette-0%20errors-brightgreen?style=flat-square)
+![Language](https://img.shields.io/badge/language-C-00599C?style=flat-square&logo=c&logoColor=white)
+![42](https://img.shields.io/badge/42-Madrid-000000?style=flat-square)
+![Valgrind](https://img.shields.io/badge/valgrind-0%20leaks-brightgreen?style=flat-square)
+![Performance](https://img.shields.io/badge/500%20numbers-~4900%20moves-blue?style=flat-square)
 
 `push_swap` is an algorithmic project from the 42 school curriculum. Given a
 list of unique integers, the program prints the **shortest sequence of stack
